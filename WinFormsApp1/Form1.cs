@@ -97,7 +97,7 @@ namespace WinFormsApp1
         {
             for (int i = 0; i < _boardSize; i++)
             {
-                for (int n = 0; n < _board.GetLength(0); n++)
+                for (int n = 0; n < _boardSize; n++)
                 {
 
                     switch (_board[i, n])
@@ -109,6 +109,7 @@ namespace WinFormsApp1
                             _buttons[i, n].BackColor = Color.White;
                             break;
                         default:
+                            _buttons[i, n].BackColor = Color.Green;
                             break;
                     }
 
@@ -263,6 +264,7 @@ namespace WinFormsApp1
                 for (int col = 0; col < _boardSize; col++)
                 {
                     _buttons[row, col].Text = "";
+
                 }
             }
         }
@@ -299,6 +301,7 @@ namespace WinFormsApp1
             {
                 resultMessage = $"引き分けです！\n黒: {blackCount} - 白: {whiteCount}";
             }
+            _turnLabel.Text = resultMessage.Replace("\n"," ");
             MessageBox.Show(resultMessage, "ゲーム終了", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         //------------------------
