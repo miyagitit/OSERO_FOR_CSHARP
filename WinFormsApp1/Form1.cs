@@ -267,37 +267,6 @@ namespace WinFormsApp1
             }
         }
 
-        //パス処理のメソッドだぜ
-        private void PassTurn()
-        {
-            if (!CanPutAnywhere())
-            {
-                if (endFlag)
-                {
-                    EndGame();
-                }
-                else
-                {
-                    endFlag = true;
-                    MessageBox.Show("置ける場所がありません。パスします。", "パス", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (_currentTurn == 1)
-                    {
-                        _currentTurn = 2;
-                    }
-                    else
-                    {
-                        _currentTurn = 1;
-                    }
-                    BoardCheck();
-                }
-            }
-            else
-            {
-                endFlag = false;
-            }
-        }
-        //------------------------
-
         //ゲーム終了時の処理だぜ
         private void EndGame()
         {
